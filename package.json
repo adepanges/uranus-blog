@@ -19,13 +19,15 @@
   },
   "homepage": "https://github.com/adepanges/uranus-blog#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
     "flat": "^4.1.0",
     "moment": "^2.22.2",
-    "response-time": "^2.3.2"
+    "response-time": "^2.3.2",
+    "winston": "^3.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
