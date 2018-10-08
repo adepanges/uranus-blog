@@ -15,10 +15,12 @@ module.exports = (app) => {
     app.engine('hbs', exphbs({
         defaultLayout: 'main',
         extname: '.hbs',
+        cache: true,
         layoutsDir: 'resources/views/layouts',
         partialsDir: 'resources/views/partials'
     }));
     app.set('view engine', 'hbs');
+    app.enable('view cache');
 
     /*
     mongoose.Promise = global.Promise;
