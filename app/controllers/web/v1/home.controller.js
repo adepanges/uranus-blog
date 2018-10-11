@@ -1,13 +1,13 @@
 function index(req, res, next) {
 	res.render('home', {
-		layout: 'shout/home',
+		layout: 'shout/default',
 		meta: {
 			og: {
 				title: 'hai'
 			}
 		},
 		document: {
-			title: 'hALOOOaaaaO',
+			title: 'haloo',
 			header_meta_js: ['halo.js']
 		},
 	})

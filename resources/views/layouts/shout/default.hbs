@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> shout/meta_header }}
+    
+    {{!-- BEGIN: META HEADER CUSTOM --}}
+    {{#each document.header_meta_css }}
+    {{{ link_css this }}}
+    {{/each}}
+    {{#each header_meta_js }}
+    {{{ script_js this }}}
+    {{/each}}
+    {{!-- END: META HEADER CUSTOM --}}
+
+</head>
+<body>
+	
+    {{{ body }}}
+
+    {{> shout/footer }}
+
+    {{> shout/meta_footer }}
+    
+    {{!-- BEGIN: META FOOTER CUSTOM --}}
+    {{#each document.footer_meta_js }}
+    {{{ script_js this }}}
+    {{/each}}
+    {{#each document.footer_meta_css }}
+    {{{ link_css this }}}
+    {{/each}}
+    {{!-- BEGIN: META FOOTER CUSTOM --}}
+
+</body>
+</html>

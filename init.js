@@ -15,10 +15,9 @@ module.exports = (app) => {
         shortHash: false
     });
 
-
     app.set('views', BASE_PATH + '/resources/views/');
     app.engine('hbs', exphbs({
-        defaultLayout: 'home',
+        defaultLayout: 'default',
         extname: 'hbs',
         layoutsDir: 'resources/views/layouts',
         partialsDir: 'resources/views/partials',
