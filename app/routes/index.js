@@ -1,28 +1,32 @@
 const express = require('express');
 const home = loadController(`web/v1/home`);
-const path = require('path');
-global.staticify = require('staticify')(path.join(BASE_PATH, 'public'));
-
 
 module.exports = (app) => {
 	
-	loadMiddleware('request')(app);
-
+	// ----- BEGIN : ACCESS STATIC FILE -------
+	app.use(function(req, res, next) {
+		req.url = req.url.replace(/\/([^\/]+)\.[0-9a-f]+\.(css|js|jpg|png|gif|svg)$/, '/$1.$2');
+		next();
+	});
 	app.use(staticify.middleware);
-	// app.use(express.static(path.join(BASE_PATH, 'public'), { maxAge: '30 days' }));
+	// ----- END : ACCESS STATIC FILE -------
 	
-	// load all all.route.js
+
+	// ----- BEGIN : API -------
+	loadMiddleware('request')(app)
 	loadRouter('api_all')(app);
 	loadMiddleware('response')(app);
+	// ----- END : API -------
 	
 
 	// ----- BEGIN : ACCESS PUBLIC TRAFIC -------
 	// cek cache first for web
 	// loadMiddleware('cache')(app);
+	loadMiddleware('request_web')(app)
 	app.get('/', home.index);
 	app.get('/coba', home.index);
 	app.get('/coba/a/b', home.index);
 	// ----- END : ACCESS PUBLIC TRAFIC -------
 	
-	// loadMiddleware('error')(app);
+	loadMiddleware('error')(app);
 };

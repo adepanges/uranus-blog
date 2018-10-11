@@ -1,4 +1,5 @@
 const exphbs = require('express-handlebars');
+const path = require('path');
 
 module.exports = (app) => {
     global.loadApp = (moduleName) => { return require(`${APP_PATH}/${moduleName}`) };
@@ -10,10 +11,14 @@ module.exports = (app) => {
     global.loadLib = (libName) => { return require(`${BASE_PATH}/libs/${libName}`) };
     global.logger = loadLib('logger')
     global.config = require('./config')
+    global.staticify = require('staticify')(path.join(BASE_PATH, 'public'), {
+        shortHash: false
+    });
+
 
     app.set('views', BASE_PATH + '/resources/views/');
     app.engine('hbs', exphbs({
-        defaultLayout: 'shout',
+        defaultLayout: 'home',
         extname: 'hbs',
         layoutsDir: 'resources/views/layouts',
         partialsDir: 'resources/views/partials',
