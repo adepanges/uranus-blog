@@ -1,5 +1,5 @@
 module.exports = (app) => {
-	app.use((req, res, next) => {
+	app.use('/api', (req, res, next) => {
 
 		var meta = {
 			code: 200,
@@ -9,7 +9,7 @@ module.exports = (app) => {
 		if(typeof res.locals.response != 'undefined'){
 			if(typeof res.locals.response.code != 'undefined') {
 				meta.code = res.locals.response.code;
-				delete res.locals.	response.code;
+				delete res.locals.response.code;
 			}
 			
 			if(typeof res.locals.response.messages != 'undefined') {

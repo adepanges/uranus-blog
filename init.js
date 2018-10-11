@@ -13,14 +13,13 @@ module.exports = (app) => {
 
     app.set('views', BASE_PATH + '/resources/views/');
     app.engine('hbs', exphbs({
-        defaultLayout: 'main',
-        extname: '.hbs',
-        cache: true,
+        defaultLayout: 'shout',
+        extname: 'hbs',
         layoutsDir: 'resources/views/layouts',
-        partialsDir: 'resources/views/partials'
+        partialsDir: 'resources/views/partials',
+        helpers: require('./resources/views/hbs/helpers')
     }));
     app.set('view engine', 'hbs');
-    app.enable('view cache');
 
     /*
     mongoose.Promise = global.Promise;

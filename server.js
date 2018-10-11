@@ -8,5 +8,5 @@ global.PORT = 3000;
 require('./init')(app)
 
 app.listen(PORT, () => {
-    logger.debug('Server is listening on port 3000');
+    logger.debug('Server is listening on port '+ PORT);
 });
