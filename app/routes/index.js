@@ -1,4 +1,3 @@
-const express = require('express');
 const home = loadController(`web/v1/home`);
 
 module.exports = (app) => {
