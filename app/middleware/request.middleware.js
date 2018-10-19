@@ -15,7 +15,7 @@ module.exports = (app) => {
 		var protocol = String(req.protocol).toUpperCase(),
 		hostname = req.hostname;
 		
-		if(protocol == 'HTTP') logger.http(`[${req.method}] ${hostname} ${req.url}`);
+		if(protocol == 'HTTP') logger.http(`[${req.method}] ${hostname}${req.url}`);
 		next();
 	});
 }
