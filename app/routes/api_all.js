@@ -4,6 +4,7 @@ var routes = {
 	api: {
 		v1: {
 			joke: 'api/v1/joke',
+			user: 'api/v1/user',
 		}
 	}
 };

@@ -8,7 +8,7 @@ const db = {};
 
 let sequelize;
 sequelize = new Sequelize(process.env.DB_URANUS_DB, process.env.DB_URANUS_USER, process.env.DB_URANUS_PASS, {
-	host: process.env.DB_URANUS_DB,
+	host: process.env.DB_URANUS_HOST,
 	dialect: process.env.DB_URANUS_DIALECT,
 	port: process.env.DB_URANUS_PORT,
 	pool: {
@@ -16,6 +16,11 @@ sequelize = new Sequelize(process.env.DB_URANUS_DB, process.env.DB_URANUS_USER, 
 		min: 0,
 		acquire: 30000,
 		idle: 10000
+	},
+	define: {
+		createdAt: 'created_at',
+		updatedAt: 'updated_at',
+		deletedAt: 'deleted_at'
 	}
 });
 
