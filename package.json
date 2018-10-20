@@ -8,13 +8,7 @@
     "dev": "nodemon server.local.js",
     "vhost": "nodemon server.vhost.js",
     "debug": "nodemon --inspect server.local.js",
-    "vhost-debug": "nodemon --inspect server.vhost.js",
-    "lint": "eslint .",
-    "serve": "firebase serve --only functions",
-    "shell": "firebase functions:shell",
-    "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "vhost-debug": "nodemon --inspect server.vhost.js"
   },
   "repository": {
     "type": "git",
@@ -27,18 +21,18 @@
   },
   "homepage": "https://github.com/adepanges/uranus-blog#readme",
   "dependencies": {
-    "firebase-admin": "~6.0.0",
-    "firebase-functions": "^2.0.3",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "connect": "^3.6.6",
     "dotenv": "^6.1.0",
-    "express": "^4.16.3",
+    "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
     "flat": "^4.1.0",
     "moment": "^2.22.2",
+    "mysql2": "^1.6.1",
     "response-time": "^2.3.2",
+    "sequelize": "^4.41.0",
     "staticify": "^3.0.0",
     "vhost": "^3.0.2",
     "winston": "^3.1.0"
@@ -48,7 +42,7 @@
     "babel-loader": "^8.0.4",
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.26.0",
-    "eslint": "^5.6.0",
+    "eslint": "^5.7.0",
     "eslint-config-equimper": "^2.2.2",
     "eslint-config-es2015": "^1.1.0",
     "nodemon": "^1.18.4"

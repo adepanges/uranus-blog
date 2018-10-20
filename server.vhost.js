@@ -20,6 +20,3 @@ logger.debug('vhost ' + DOMAIN_BLOG + ' is listening');
 app.listen(PORT, function(){
 	logger.debug('vhost listening on port '+ PORT);
 });
-
-
-// #00C3C3
