@@ -11,6 +11,7 @@ sequelize = new Sequelize(process.env.DB_URANUS_DB, process.env.DB_URANUS_USER, 
 	host: process.env.DB_URANUS_HOST,
 	dialect: process.env.DB_URANUS_DIALECT,
 	port: process.env.DB_URANUS_PORT,
+	timezone: '+07:00', //for writing to database
 	pool: {
 		max: 5,
 		min: 0,

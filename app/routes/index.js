@@ -14,6 +14,7 @@ module.exports = (app) => {
 	// ----- BEGIN : API -------
 	loadMiddleware('request')(app)
 	loadRouter('api_all')(app);
+	loadMiddleware('error')(app);
 	loadMiddleware('response')(app);
 	// ----- END : API -------
 	
@@ -26,6 +27,4 @@ module.exports = (app) => {
 	app.get('/coba', home.index);
 	app.get('/coba/a/b', home.index);
 	// ----- END : ACCESS PUBLIC TRAFIC -------
-	
-	loadMiddleware('error')(app);
 };

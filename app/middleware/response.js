@@ -16,7 +16,13 @@ module.exports = (app) => {
 				meta.messages = res.locals.response.messages
 				delete res.locals.response.messages;
 			}
+
+			if (typeof res.locals.response.data == 'undefined') {
+				delete res.locals.response.data;
+			}
 		}
+
+		if (Object.keys(res.locals.response).length === 0) res.locals.response = [];
 
 		res.status(meta.code).json({
 			meta: meta,
