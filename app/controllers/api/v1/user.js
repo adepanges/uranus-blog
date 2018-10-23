@@ -5,15 +5,13 @@ const Op = DB.Sequelize.Op;
 const list = async (req, res, next) => {
     User.findAll()
         .then(users => {
-            res.locals.response = { users }
-            next();
+            res.app.emit('response', res, { users })
         })
         .catch(error => {
-            res.locals.response = {
+            res.app.emit('response', res, {
                 code: 502,
                 messages: error.errors
-            }
-            next();
+            })
         });
 }
 
@@ -43,17 +41,13 @@ const create = async (req, res, next) => {
 const retrieve = async (req, res, next) => {
     User.findById(req.params.userId,)
         .then(users => {
-            res.locals.response = {
-                users
-            }
-            next();
+            res.app.emit('response', res, { users })
         })
         .catch(error => {
-            res.locals.response = {
+            res.app.emit('response', res, {
                 code: 502,
                 messages: error.errors
-            }
-            next();
+            })
         });
 }
 
@@ -74,23 +68,20 @@ const update = async (req, res, next) => {
                     birthday: req.body.birthday || user.birthday,
                 })
                 .then(() => {
-                    res.locals.response = { user }
-                    next();
+                    res.app.emit('response', res, { user })
                 })  // Send back the updated todo.
                 .catch((error) => {
-                    res.locals.response = {
+                    res.app.emit('response', res, {
                         code: 502,
                         messages: error.errors
-                    }
-                    next();
+                    })
                 });
         })
         .catch(error => {
-            res.locals.response = {
-                code: 404,
-                messages: 'User Not Found'
-            }
-            next();
+            res.app.emit('response', res, {
+                code: 502,
+                messages: error.errors
+            })
         });
 }
 
