@@ -15,7 +15,6 @@ module.exports = (app) => {
 	loadMiddleware('request')(app)
 	loadRouter('api_all')(app);
 	loadMiddleware('error')(app);
-	loadMiddleware('response')(app);
 	// ----- END : API -------
 	
 

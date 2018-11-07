@@ -53,6 +53,8 @@ module.exports = (app) => {
 	app.use(bodyParser.json());
 
 	app.use(responseTime());
+
+	// to attach proxy to catch data and responed to client
 	attachListeners(app)
 
 	app.use((req, res, next) => {
