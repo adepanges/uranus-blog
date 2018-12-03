@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.local.js",
+    "dev": "nodemon server.js",
     "vhost": "nodemon server.vhost.js",
-    "debug": "nodemon --inspect server.local.js",
+    "debug": "nodemon --inspect server.js",
     "vhost-debug": "nodemon --inspect server.vhost.js"
   },
   "repository": {
